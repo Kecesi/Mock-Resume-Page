@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/7946bfa1d2.js" crossorigin="anonymous"></script>
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    transition: background-color 1s ease;
+}
+
+.container {
+    width: 100%;
+    min-height: 120vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container > div {
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+.skill-item {
+    margin-right: 10px;
+    margin-bottom: 5px;
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.project {
+    margin-bottom: 10px;
+}
+
+.project h3 {
+    color: #007bff;
+}
+
+.project-box {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.project-box:hover {
+    background-color: #f7f7f7;
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
+
+.slideInUp {
+    animation-name: slideInUp;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.discord {
+    display: flex;
+    gap: 3px;
+}
+
+.tcontactinfo {
+    color: black
+}
+
+.description {
+    text-align: center;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="animated fadeIn">
+        <h1>Kecesi</h1>
+        <div id="description">
+            <p>Welcome to my Mock Recume, this is a display of basic programming skills outside of a Coding Interview! All the code to this website is open-source so feel free to take a gander at my Github linked below.</p>
+            <br>
+        </div>
+        <div id="contact-info">
+            <div class="discord">
+                <a href="https://discordapp.com/users/826632819220545567" class="tcontactinfo" style="text-decoration:none" ;>Discord: kecesi</a> <i class="fa-brands fa-discord"></i>
+            </div>
+            <div id="github">
+                <a href="https://github.com/Kecesi" class="tcontactinfo" style="text-decoration:none" ;>Github: kecesi</a> <i class="fa-brands fa-github"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="animated fadeIn slideInUp">
+        <h2>Skills</h2>
+        <div class="skill-item">JavaScript & Frameworks</div>
+        <div class="skill-item">C#</div>
+        <div class="skill-item">C++</div>
+        <div class="skill-item">Smalltalk</div>
+        <div class="skill-item">Java</div>
+        <div class="skill-item">Reading Documentation & Working With APIs</div>
+    </div>
+
+    <div class="animated fadeIn slideInUp">
+        <h2>Experience</h2>
+        <div class="project-box">
+            <div class="project">
+                <h3>C# & C++</h3>
+                <p>Game Developer for 5+ Years working on various titles and entering in Competitions, building a 3D Game Engine using the OpenGL Library as a Graphics Rendering Framework, and working with/developing Machine Learning Algorithims for Video Games. Eventually, I came to the point where I used these languages working with lab researchers for various tasks.</p>
+            </div>
+        </div>
+        <div class="project-box">
+            <div class="project">
+                <h3>Javascript</h3>
+                <p>Javascript Developer for 2+ years exclusively working on small projects working with the provided Roblox APIs for both Web Appps & Automation. Later on moving towards defensive programming strategies for large-scale applications.</p>
+            </div>
+        </div>
+        <div class="project-box">
+            <div class="project">
+                <h3>Smalltalk & Java</h3>
+                <p>Java & Smalltalk Developer for 3+ Years working on various complexity intensive back-end web app projects for various organizations.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const animatedElements = document.querySelectorAll('.animated');
+
+const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5
+};
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fadeIn');
+            entry.target.classList.add('slideInUp');
+        }
+    });
+}, options);
+
+animatedElements.forEach(element => {
+    observer.observe(element);
+});
+
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+window.onload = function() {
+    document.body.style.backgroundColor = '#f5f5f5';
+    setTimeout(function() {
+        document.body.style.backgroundColor = '#ccf3ff';
+    }, 1000);
+};
+
+</script>
+
+</body>
+</html>
